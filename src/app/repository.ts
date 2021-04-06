@@ -16,4 +16,12 @@ export class Repository {
     this.isPrivate = isPrivate;
     this.visibility = visibility;
   }
+
+  fetchRepoSearch() {
+    //add the http service that is responsible for search repository that match with the search criteria.
+  }
+
+  fetchRepoInfo() {
+    //add the http service that is responsible for fetching on repository's data by the RepoID
+  }
 }

@@ -18,4 +18,12 @@ export class User {
     this.hireable = hireable;
     this.bio = bio;
   }
+
+  fetchUserSearch() {
+    //add the http service that is responsible for search users that match with the search criteria.
+  }
+
+  fetchUserInfo() {
+    //add the http service that is responsible for fetching on user's data by the userID
+  }
 }
