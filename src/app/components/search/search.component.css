@@ -1,0 +1,71 @@
+.form-container {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  justify-self: center;
+  align-items: center;
+}
+.h5 {
+  color: #a08566 !important;
+  font-weight: 800;
+}
+
+.search-form-container {
+  max-height: 80vh;
+  margin: auto;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.search-text-label {
+  color: #22333b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.search-text-body {
+  color: #a08566;
+  font-size: 14px;
+}
+
+.search-input-style {
+  background-color: #f7f7f7;
+  width: 80%;
+  border-width: 0 0 2px 0;
+  border-color: #22333b;
+  border-style: solid;
+  color: #a08566;
+  font-weight: 500;
+}
+
+.search-button {
+  justify-content: flex-end;
+  background-color: #22333b;
+  color: #f7f7f7;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 5px 20px;
+  /* border-radius: 10px; */
+}
+.search-button:hover {
+  background-color: #22333b;
+  color: #f7f7f7;
+  transition: 500ms ease-in;
+}
+
+.input-custom-append {
+  border-width: 0 !important;
+  background-color: #f7f7f7 !important;
+}
+
+.search-icon {
+  color: #f7f7f7;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before,
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #a08566;
+  border-radius: 50%;
+}
