@@ -11,6 +11,8 @@ import { SearchQueryComponent } from './components/search-query/search-query.com
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { SearchLandingComponent } from './components/search-landing/search-landing.component';
+import { RepoHttpService } from './services/repo-http.service';
+import { UserHttpService } from './services/user-http.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { SearchLandingComponent } from './components/search-landing/search-landi
     SearchLandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [RepoHttpService, UserHttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
