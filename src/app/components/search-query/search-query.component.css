@@ -5,10 +5,6 @@
   justify-self: center;
   align-items: center;
 }
-.h5 {
-  color: #a08566 !important;
-  font-weight: 800;
-}
 
 .search-form-container {
   max-height: 80vh;
