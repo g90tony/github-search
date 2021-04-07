@@ -21,6 +21,18 @@ input:focus {
   z-index: -2;
 }
 
+.h6 {
+  color: #a08566 !important;
+  font-weight: 800;
+}
+
+.header-upper {
+  /* position: absolute; */
+  top: 50px;
+  left: 50px;
+  z-index: -2;
+}
+
 @media screen and (max-width: 576px) {
   .header {
     top: 17%;
