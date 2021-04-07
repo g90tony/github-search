@@ -1,0 +1,102 @@
+#header-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.details-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  padding: 5px 10px;
+}
+.search-result-item-ruler {
+  border: 1px solid #a08566;
+}
+
+.search-result-user-pic {
+  width: 75px;
+  height: auto;
+}
+
+.search-result-user-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #22333b;
+}
+
+.search-result-user-location {
+  font-size: 16px;
+  font-weight: 700;
+  color: #a08566;
+  margin: 10px 0;
+}
+
+.search-result-item-description {
+  font-size: 14px;
+  padding: 0 20px;
+  color: #22333b;
+}
+
+.search-results-user-email {
+  font-size: 14px;
+  color: #a08566;
+  margin: auto 5px;
+  font-weight: 600;
+}
+.search-results-user-email span {
+  color: #22333b;
+}
+
+.search-results-user-twitter {
+  font-size: 14px;
+  color: #a08566;
+  margin: auto 5px;
+  font-weight: 600;
+}
+.search-results-user-twitter span {
+  color: #22333b;
+}
+
+.search-results-user-company {
+  font-size: 14px;
+  color: #a08566;
+  margin: auto 5px;
+  font-weight: 600;
+}
+
+.search-results-user-company span {
+  color: #22333b;
+}
+
+.search-results-user-hirable {
+  font-size: 14px;
+  color: #a08566;
+  margin: auto 5px;
+  font-weight: 600;
+}
+
+.search-results-user-hirable span {
+  color: #22333b;
+}
+
+.button-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.search-result-user-button {
+  background-color: #22333b;
+  font-weight: 600;
+  font-size: 14px;
+  color: #f7f7f7;
+  padding: 5px;
+}
+
+.search-result-user-button:hover {
+  background-color: #f7f7f7;
+  color: #22333b;
+  transition: 500ms ease-in;
+}
