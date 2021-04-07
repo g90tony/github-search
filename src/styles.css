@@ -5,3 +5,7 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #eae0d5;
 }
+
+a {
+  text-decoration: none;
+}
