@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { RepoViewComponent } from './components/repo-view/repo-view.component';
-import { UserViewComponent } from './components/user-view/user-view.component';
-import { SearchComponent } from './components/search/search.component';
+
+import { SearchQueryComponent } from './components/search-query/search-query.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
+import { RepoItemComponent } from './components/repo-item/repo-item.component';
+import { SearchLandingComponent } from './components/search-landing/search-landing.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { SearchComponent } from './components/search/search.component';
     LandingPageComponent,
     NavBarComponent,
     SearchResultsComponent,
-    RepoViewComponent,
-    UserViewComponent,
-    SearchComponent,
+    SearchQueryComponent,
+    UserItemComponent,
+    RepoItemComponent,
+    SearchLandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
