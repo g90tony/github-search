@@ -1,0 +1,8 @@
+.navbar-custom-style {
+  background-color: #22333b;
+  color: #eae0d5 !important;
+}
+
+.navbar-custom-style a {
+  text-decoration: none;
+}
