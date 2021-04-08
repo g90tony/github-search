@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RepoHttpService } from 'src/app/services/repo-http.service';
 import { UserHttpService } from 'src/app/services/user-http.service';
 
@@ -11,7 +12,8 @@ import { UserHttpService } from 'src/app/services/user-http.service';
 export class LoginComponent implements OnInit {
   constructor(
     private userHttpService: UserHttpService,
-    private repoHttpService: RepoHttpService
+    private repoHttpService: RepoHttpService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {}
@@ -21,5 +23,7 @@ export class LoginComponent implements OnInit {
 
     this.userHttpService.setToken(newToken);
     this.repoHttpService.setToken(newToken);
+
+    this.route.navigate(['/profile']);
   }
 }
