@@ -10,9 +10,14 @@ export class UserHttpService {
 
   ApiUrl = 'https://api.github.com';
 
-  url = `${this.ApiUrl}/user?access_token=${environment.ApiKey}`;
+  MyDataUrl = `${this.ApiUrl}/user?access_token=${environment.ApiKey}`;
+  SearchAllUrl = `${this.ApiUrl}/search/users?access_token=${environment.ApiKey}`;
 
   getMyData() {
-    return this.http.get(this.url);
+    return this.http.get(this.MyDataUrl);
+  }
+
+  searchUsers(payload: string) {
+    return this.http.get(this.SearchAllUrl, { params: { q: payload } });
   }
 }

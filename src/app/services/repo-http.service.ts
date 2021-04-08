@@ -8,9 +8,14 @@ import { environment } from 'src/environments/environment';
 export class RepoHttpService {
   constructor(private http: HttpClient) {}
 
-  url = `https://api.github.com/user/repos?access_token=${environment.ApiKey}`;
+  myRepoUrl = `https://api.github.com/user/repos?access_token=${environment.ApiKey}`;
+  searchUrl = `https://api.github.com/search/repositories?access_token=${environment.ApiKey}`;
 
   getMyRepos() {
-    return this.http.get(this.url, { params: { visibility: 'public' } });
+    return this.http.get(this.myRepoUrl, { params: { visibility: 'public' } });
+  }
+
+  getRepos(payload: string) {
+    return this.http.get(this.searchUrl, { params: { q: payload } });
   }
 }
