@@ -15,6 +15,7 @@ import { SearchLandingComponent } from './components/search-landing/search-landi
 import { RepoHttpService } from './services/repo-http.service';
 import { UserHttpService } from './services/user-http.service';
 import { User } from './classes/user';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { User } from './classes/user';
     RepoItemComponent,
     SearchLandingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     RepoHttpService,
     UserHttpService,
