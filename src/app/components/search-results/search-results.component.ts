@@ -18,6 +18,9 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
     const usernames: Array<Object> = [];
     let counter = 0;
+    if (this.searchResults.length == 0) {
+      this.router.navigate(['/search-query']);
+    }
     this.searchResults.map((element: any) => {
       usernames[counter] = element;
       counter++;
