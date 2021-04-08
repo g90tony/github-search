@@ -48,7 +48,8 @@ export class LandingPageComponent implements OnInit {
       data.location,
       data.name,
       data.twitter,
-      total_repos
+      total_repos,
+      data.html_url
     );
 
     return authenticatedUser;

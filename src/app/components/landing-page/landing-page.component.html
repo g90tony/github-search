@@ -13,35 +13,27 @@
           <p class="user-name">{{ authenticatedUser.name }}</p>
         </div>
         <div class="user-name-container">
-          <p class="user-twitter mb-0">
+          <p class="user-twitter mb-0 detail-label">
             Twitter: {{ authenticatedUser.twitter }}
           </p>
         </div>
         <div class="user-name-container">
-          <p class="user-twitter mt-0">Email: {{ authenticatedUser.email }}</p>
-        </div>
-        <div class="user-details-row">
-          <div class="detail-container w-100 mx-auto">
-            <p class="detail-label">Followers</p>
-            <p class="detail-text">{{ authenticatedUser.followers }}</p>
-          </div>
-          <div class="detail-container w-100 mx-auto">
-            <p class="detail-label">Following</p>
-            <p class="detail-text">{{ authenticatedUser.following }}</p>
-          </div>
+          <p class="user-twitter mt-0 detail-label">
+            Email:
+            <span class="detail-text">
+              {{ authenticatedUser.email }}
+            </span>
+          </p>
         </div>
       </div>
     </div>
   </div>
   <div class="head-column m-auto">
-    <div class="user-details-row w-100">
+    <div class="user-details-row">
       <div class="detail-container w-100 mx-auto">
-        <p class="detail-label">Joined</p>
-        <p class="detail-text">20 August 2010</p>
-      </div>
-      <div class="detail-container w-100 mx-auto">
-        <p class="detail-label">Location</p>
-        <p class="detail-text">{{ authenticatedUser.location }}</p>
+        <p class="detail-text font-weight-bold flex-wrap">
+          {{ authenticatedUser.bio }}
+        </p>
       </div>
     </div>
     <div class="user-details-row">
@@ -54,9 +46,14 @@
         <p class="detail-text">{{ authenticatedUser.hireable }}</p>
       </div>
     </div>
-    <!-- <div class="visit-row my-auto">
-      <button class="btn btn-dark btn-sm w-100">Go To GitHub Profile</button>
-    </div> -->
+    <div class="visit-row my-auto">
+      <a
+        href="{{ authenticatedUser.github_url }}"
+        target="_blank"
+        class="btn btn-dark btn-sm w-100"
+        >Go To GitHub Profile</a
+      >
+    </div>
   </div>
 </div>
 

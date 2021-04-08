@@ -54,7 +54,7 @@
 .user-details-row {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .detail-container {
@@ -72,5 +72,5 @@
 .detail-text {
   padding: 0 10px;
   font-size: 12px;
-  text-align: center;
+  text-align: start;
 }
