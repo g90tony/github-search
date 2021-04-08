@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-repo-item',
@@ -8,5 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class RepoItemComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  @Input() repos: any;
+
+  ngOnInit(): void {
+    console.log(this.repos);
+  }
 }

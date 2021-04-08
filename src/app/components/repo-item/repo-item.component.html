@@ -1,11 +1,13 @@
-<div class="media search-result-item">
-  <div class="media-body">
+<div class="media" *ngFor="let repo of repos">
+  <div class="px-4 media-body">
     <div id="header-row">
-      <p class="search-result-repo-name">Repository Result Item</p>
-      <p class="search-result-repo-organization">Organization</p>
+      <p class="search-result-repo-name">{{ repo.repo_name }}</p>
+      <p class="search-result-repo-organization">{{ repo.owner }}</p>
     </div>
     <div class="details-row">
-      <p class="search-results-repo-details">Owner: <span> John Doe</span></p>
+      <p class="search-results-repo-details">
+        Language: <span> {{ repo.language }}</span>
+      </p>
       <p class="search-results-repo-details">
         Homepage:
         <span>
@@ -13,22 +15,27 @@
             href="http://www.github.com"
             target="_blank"
             rel="noopener noreferrer"
-            >www.github.com</a
+            >{{ repo.homepage }}</a
           ></span
         >
       </p>
-      <p class="search-results-repo-details">Star Gazers: <span>3</span></p>
+      <p class="search-results-repo-details">
+        Star Gazers: <span>{{ repo.stargazers }}</span>
+      </p>
     </div>
 
     <p class="search-result-item-description">
-      Will you do the same for me? It's time to face the music I'm no longer
-      your muse. Heard it's beautiful, be the judge and my girls gonna take a
-      vote. I can feel a phoenix inside of me. Heaven is jealous of our love,
-      angels are crying from up above. Yeah, you take me to utopia.
+      {{ repo.bio }}
     </p>
 
     <div class="button-row">
-      <button class="btn btn-sm search-result-repo-button">View</button>
+      <a
+        href="{{ repo.url }}"
+        target="_blank"
+        class="btn btn-sm search-result-repo-button"
+        >View in GitHub</a
+      >
     </div>
+    <hr class="border-dark w-75 mx-auto mt-2 mb-4" />
   </div>
 </div>
