@@ -4,28 +4,30 @@
       <div class="user-image-holder rounded-circle border-dark">
         <img
           class="user-image rounded"
-          src="https://images.pexels.com/photos/944773/pexels-photo-944773.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000"
-          alt=""
+          src="{{ authenticatedUser.avatar }}"
+          alt="{{ authenticatedUser.name }}"
         />
       </div>
       <div class="details-column">
         <div class="user-name-container">
-          <p class="user-name">John Doe</p>
+          <p class="user-name">{{ authenticatedUser.name }}</p>
         </div>
         <div class="user-name-container">
-          <p class="user-twitter mb-0">@JohnDoe</p>
+          <p class="user-twitter mb-0">
+            Twitter: {{ authenticatedUser.twitter }}
+          </p>
         </div>
         <div class="user-name-container">
-          <p class="user-twitter mt-0">johndoe@example.com</p>
+          <p class="user-twitter mt-0">Email: {{ authenticatedUser.email }}</p>
         </div>
         <div class="user-details-row">
           <div class="detail-container w-100 mx-auto">
             <p class="detail-label">Followers</p>
-            <p class="detail-text">20</p>
+            <p class="detail-text">{{ authenticatedUser.followers }}</p>
           </div>
           <div class="detail-container w-100 mx-auto">
             <p class="detail-label">Following</p>
-            <p class="detail-text">14</p>
+            <p class="detail-text">{{ authenticatedUser.following }}</p>
           </div>
         </div>
       </div>
@@ -39,17 +41,17 @@
       </div>
       <div class="detail-container w-100 mx-auto">
         <p class="detail-label">Location</p>
-        <p class="detail-text">Nairobi Kenya</p>
+        <p class="detail-text">{{ authenticatedUser.location }}</p>
       </div>
     </div>
     <div class="user-details-row">
       <div class="detail-container w-100 mx-auto">
         <p class="detail-label">Repositories</p>
-        <p class="detail-text">20</p>
+        <p class="detail-text">{{ authenticatedUser.total_repos }}</p>
       </div>
       <div class="detail-container w-100 mx-auto">
         <p class="detail-label">Hireable</p>
-        <p class="detail-text">Yes</p>
+        <p class="detail-text">{{ authenticatedUser.hireable }}</p>
       </div>
     </div>
     <!-- <div class="visit-row my-auto">
