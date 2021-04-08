@@ -14,6 +14,7 @@ import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { SearchLandingComponent } from './components/search-landing/search-landing.component';
 import { RepoHttpService } from './services/repo-http.service';
 import { UserHttpService } from './services/user-http.service';
+import { User } from './classes/user';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,12 @@ import { UserHttpService } from './services/user-http.service';
     SearchLandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [RepoHttpService, UserHttpService],
+  providers: [
+    RepoHttpService,
+    UserHttpService,
+    { provide: Object, useValue: Object },
+    { provide: User, useValue: User },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
