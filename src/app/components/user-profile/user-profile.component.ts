@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Repository } from 'src/app/classes/repository';
 import { User } from 'src/app/classes/user';
 import { RepoHttpService } from 'src/app/services/repo-http.service';
@@ -13,23 +14,28 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private userHttpService: UserHttpService,
     private repoHttpService: RepoHttpService,
-    private privateUser: User,
-    private privateUserRepositories: Array<Repository>
+    private randomUser: User,
+    private route: ActivatedRoute,
+    private randomUserRepositories: Array<Repository>
   ) {}
 
   authenticatedUser: any;
   authenticatedRepositories: any;
 
   ngOnInit(): void {
-    this.userHttpService.getMyData().subscribe((userData: any) => {
-      this.privateUser = this.createNewInstance(userData);
-      this.authenticatedUser = this.privateUser;
+    let username: any = this.route.snapshot.paramMap.get('username');
+
+    this.userHttpService.getUserData(username).subscribe((userData: any) => {
+      this.randomUser = this.createNewInstance(userData);
+      this.authenticatedUser = this.randomUser;
 
       if (this.authenticatedUser) {
-        this.repoHttpService.getMyRepos().subscribe((userRepos: any) => {
-          this.privateUserRepositories = this.fetchUserRepos(userRepos);
-          this.authenticatedRepositories = this.privateUserRepositories;
-        });
+        this.repoHttpService
+          .getUserRepos(username)
+          .subscribe((userRepos: any) => {
+            this.randomUserRepositories = this.fetchUserRepos(userRepos);
+            this.authenticatedRepositories = this.randomUserRepositories;
+          });
       }
     });
   }
