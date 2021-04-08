@@ -32,6 +32,7 @@ import { User } from './classes/user';
     RepoHttpService,
     UserHttpService,
     { provide: Object, useValue: Object },
+    { provide: Array, useValue: Array },
     { provide: User, useValue: User },
   ],
   bootstrap: [AppComponent],
