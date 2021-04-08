@@ -1,3 +1,10 @@
+<div class="header-upper mt-5 mb-0">
+  <button (click)="loadPrevPage()" class="h6 btn btn-sm p-0 font-weight-bolder">
+    GO BACK
+  </button>
+  <p class="h2 font-weight-bold">{{ authenticatedUser.name }}</p>
+</div>
+
 <div class="row mt-3 mx-auto">
   <div class="head-column">
     <div class="head-row">
@@ -34,14 +41,11 @@
     </div>
   </div>
   <div class="head-column m-auto">
-    <div class="user-details-row w-100">
+    <div class="user-details-row">
       <div class="detail-container w-100 mx-auto">
-        <p class="detail-label">Joined</p>
-        <p class="detail-text">20 August 2010</p>
-      </div>
-      <div class="detail-container w-100 mx-auto">
-        <p class="detail-label">Location</p>
-        <p class="detail-text">{{ authenticatedUser.location }}</p>
+        <p class="detail-text font-weight-bold flex-wrap">
+          {{ authenticatedUser.bio }}
+        </p>
       </div>
     </div>
     <div class="user-details-row">
@@ -54,9 +58,15 @@
         <p class="detail-text">{{ authenticatedUser.hireable }}</p>
       </div>
     </div>
-    <!-- <div class="visit-row my-auto">
-      <button class="btn btn-dark btn-sm w-100">Go To GitHub Profile</button>
-    </div> -->
+
+    <div class="visit-row my-auto">
+      <a
+        href="{{ authenticatedUser.github_url }}"
+        target="_blank"
+        class="btn btn-dark btn-sm w-100"
+        >Go To GitHub Profile</a
+      >
+    </div>
   </div>
 </div>
 

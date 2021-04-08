@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import { Repository } from 'src/app/classes/repository';
 import { User } from 'src/app/classes/user';
 import { RepoHttpService } from 'src/app/services/repo-http.service';
@@ -16,7 +17,8 @@ export class UserProfileComponent implements OnInit {
     private repoHttpService: RepoHttpService,
     private randomUser: User,
     private route: ActivatedRoute,
-    private randomUserRepositories: Array<Repository>
+    private randomUserRepositories: Array<Repository>,
+    private location: Location
   ) {}
 
   authenticatedUser: any;
@@ -40,6 +42,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  loadPrevPage() {
+    this.location.back();
+  }
+
   createNewInstance(data: any) {
     const total_repos = data.total_private_repos + data.public_repos;
 
@@ -54,7 +60,8 @@ export class UserProfileComponent implements OnInit {
       data.location,
       data.name,
       data.twitter,
-      total_repos
+      total_repos,
+      data.html_url
     );
 
     return authenticatedUser;
