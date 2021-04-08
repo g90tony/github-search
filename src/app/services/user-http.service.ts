@@ -26,6 +26,12 @@ export class UserHttpService {
     return this.http.get(this.MyDataUrl);
   }
 
+  getUserData(username: string) {
+    return this.http.get(
+      `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`
+    );
+  }
+
   searchUsers(payload: string) {
     return this.http.get(this.SearchAllUrl, {
       params: { q: payload },
@@ -34,6 +40,8 @@ export class UserHttpService {
 
   getUserDetails(userName: any) {
     console.log(userName);
-    return this.http.get(`${this.ApiUrl}/users/${userName}`);
+    return this.http.get(
+      `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`
+    );
   }
 }
