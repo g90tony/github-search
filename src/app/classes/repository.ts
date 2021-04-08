@@ -1,27 +1,21 @@
 export class Repository {
   constructor(
-    public repoID: string,
-    public organizationName: string,
-    public name: string,
-    public description: string,
-    public homepage: string,
-    public isPrivate: boolean,
-    public visibility: string
+    private repo_name: string,
+    private language: string,
+    private homepage: string,
+    private stargazers: number,
+    private description: string,
+    private owner: string,
+    private bio: string,
+    private url: string
   ) {
-    this.repoID = repoID;
-    this.organizationName = organizationName;
-    this.name = name;
-    this.description = description;
-    this.homepage = homepage;
-    this.isPrivate = isPrivate;
-    this.visibility = visibility;
-  }
-
-  fetchRepoSearch() {
-    //add the http service that is responsible for search repository that match with the search criteria.
-  }
-
-  fetchRepoInfo() {
-    //add the http service that is responsible for fetching on repository's data by the RepoID
+    this.repo_name = repo_name ? repo_name : ' Not Available';
+    this.language = language ? language : 'Not Available';
+    this.homepage = homepage ? homepage : 'Not Available';
+    this.stargazers = stargazers ? stargazers : 0;
+    this.description = description ? description : ' Not Available';
+    this.owner = owner ? owner : ' Not Available';
+    this.bio = bio ? bio : ' Not Available';
+    this.url = url ? url : ' Not Available';
   }
 }
