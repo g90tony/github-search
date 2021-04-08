@@ -10,7 +10,8 @@ export class User {
     public hireable: string,
     public name: string,
     public twitter: string,
-    public total_repos: number
+    public total_repos: number,
+    public github_url: string
   ) {
     this.avatar = avatar;
     this.bio = bio ? bio : 'Not Available';
@@ -23,5 +24,6 @@ export class User {
     this.created_at = created_at;
     this.twitter = twitter ? twitter : 'Not Available';
     this.total_repos = total_repos;
+    this.github_url = github_url;
   }
 }
