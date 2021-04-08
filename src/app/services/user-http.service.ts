@@ -6,11 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserHttpService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private token: String) {}
 
   ApiUrl = 'https://api.github.com';
-  MyDataUrl = `${this.ApiUrl}/user?access_token=${environment.ApiKey}`;
-  SearchAllUrl = `${this.ApiUrl}/search/users?access_token=${environment.ApiKey}`;
 
   private items: any = [];
 
@@ -22,26 +20,44 @@ export class UserHttpService {
     this.items.push(newItems);
   }
 
+  setToken(token: string) {
+    this.token = token;
+  }
+
   getMyData() {
-    return this.http.get(this.MyDataUrl);
+    return this.token
+      ? this.http.get(`${this.ApiUrl}/user?access_token=${environment.ApiKey}`)
+      : this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`);
   }
 
   getUserData(username: string) {
-    return this.http.get(
-      `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`
-    );
+    return this.token
+      ? this.http.get(
+          `${this.ApiUrl}/users/${username}?access_token=${this.token}`
+        )
+      : this.http.get(
+          `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`
+        );
   }
 
   searchUsers(payload: string) {
-    return this.http.get(this.SearchAllUrl, {
-      params: { q: payload },
-    });
+    return this.token
+      ? this.http.get(
+          `${this.ApiUrl}/search/users?access_token=${this.token}`,
+          {
+            params: { q: payload },
+          }
+        )
+      : this.http.get(`${this.ApiUrl}/search/users`, {
+          params: { q: payload },
+        });
   }
 
   getUserDetails(userName: any) {
-    console.log(userName);
-    return this.http.get(
-      `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`
-    );
+    return this.token
+      ? this.http.get(
+          `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`
+        )
+      : this.http.get(`${this.ApiUrl}/users/${userName}`);
   }
 }
