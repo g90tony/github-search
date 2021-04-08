@@ -11,7 +11,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { SearchQueryComponent } from './components/search-query/search-query.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { RepoItemComponent } from './components/repo-item/repo-item.component';
-import { SearchLandingComponent } from './components/search-landing/search-landing.component';
+import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RepoHttpService } from './services/repo-http.service';
 import { UserHttpService } from './services/user-http.service';
@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     SearchQueryComponent,
     UserItemComponent,
     RepoItemComponent,
-    SearchLandingComponent,
+    LoginComponent,
     UserProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     RepoHttpService,
     UserHttpService,
     { provide: Object, useValue: Object },
+    { provide: String, useValue: String },
     { provide: Array, useValue: Array },
     { provide: User, useValue: User },
   ],
