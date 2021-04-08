@@ -4,7 +4,10 @@
 </div>
 
 <div class="search-results-container container shadow">
-  <app-user-item [results]="searchResults"></app-user-item>
+  <app-user-item
+    [results]="searchResults"
+    (loadProfile)="goToProfile($event)"
+  ></app-user-item>
 </div>
 <!-- <div class="search-results-container container shadow">
   <app-repo-item></app-repo-item>
