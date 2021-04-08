@@ -4,17 +4,23 @@
 </div>
 
 <div class="form-container">
-  <form class="search-form-container shadow">
+  <form
+    class="search-form-container shadow"
+    #search="ngForm"
+    (ngSubmit)="onSubmit(search)"
+  >
     <div class="input-group mb-3">
       <input
+        ngModel
+        #searchTerm="ngModel"
         type="text"
         name="search"
         class="form-control form-control-sm search-input-style"
-        placeholder="Enter your search query here..."
+        placeholder="Enter a username to search here..."
         aria-label="Username"
       />
     </div>
-
+    <!-- 
     <button
       class="btn btn-sm btn-outline-secondary border-0"
       data-toggle="collapse"
@@ -24,9 +30,9 @@
       aria-controls="collapseExample"
     >
       More Options
-    </button>
+    </button> -->
 
-    <div class="collapse container mb-3" id="moreOptions">
+    <!-- <div class="collapse container mb-3" id="moreOptions">
       <p class="search-text-label">Filter Result By:</p>
       <div class="container mt-1">
         <div class="custom-control custom-radio">
@@ -52,9 +58,13 @@
           >
         </div>
       </div>
-    </div>
-    <a href="/search-results" class="btn btn-sm search-button border-0">
+    </div> -->
+    <button
+      href="/search-results"
+      type="submit"
+      class="btn btn-sm search-button border-0"
+    >
       Search <i class="fas search-icon fa-search"></i>
-    </a>
+    </button>
   </form>
 </div>
