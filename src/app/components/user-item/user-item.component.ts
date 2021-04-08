@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { UserHttpService } from 'src/app/services/user-http.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class UserItemComponent implements OnInit {
   UsersData: Array<any> = [];
 
   @Input() results: any;
+  @Output() loadProfile = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.results.forEach((element: any) => {
@@ -28,5 +30,9 @@ export class UserItemComponent implements OnInit {
       // console.log(data);
       this.UsersData.push(data);
     });
+  }
+
+  profileLoader(username: string) {
+    this.loadProfile.emit(username);
   }
 }

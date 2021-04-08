@@ -32,10 +32,16 @@
         <a
           href="{{ UserData.url }}"
           target="_blank"
-          class="btn btn-sm search-result-user-button"
+          class="btn btn-sm mx-2 search-result-user-button"
         >
-          View in GitHub
+          View Profile on GitHub
         </a>
+        <button
+          (click)="profileLoader(UserData.login)"
+          class="btn btn-sm mx-2 search-result-user-button"
+        >
+          View Profile Here
+        </button>
       </div>
     </div>
   </div>
