@@ -44,13 +44,42 @@
   background-color: #22333b;
   color: #eae0d5;
   font-weight: 700;
-  font-size: 14px;
-  margin-left: auto;
+  font-size: 13px;
+  margin: 0 auto;
+  height: 30px;
 }
 .hero-cta:hover {
   background-color: #c6ac8f;
   color: #22333b;
   transition: 500ms ease-in;
+}
+
+.hero-form span {
+  justify-content: flex-end;
+  background-color: #f7f7f7;
+  color: #22333b;
+  border: transparent solid 0;
+  font-weight: 700;
+  font-size: 13px;
+  margin: 0;
+  height: 30px;
+}
+
+.hero-form button {
+  font-size: 12px;
+  border-radius: 5px 5px 0 0;
+  border: 0 solid transparent;
+  font-weight: 600;
+}
+
+.hero-form input {
+  justify-content: flex-end;
+  background-color: #f7f7f7;
+  color: #22333b;
+  border: transparent solid 0;
+  font-size: 12px;
+  margin: 0;
+  height: 30px;
 }
 
 .hero-img-container {
