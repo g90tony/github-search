@@ -1,29 +1,42 @@
-<div class="media search-result-item my-3" *ngFor="let UserData of UsersData">
-  <div class="media-body">
-    <div id="header-row">
-      <p class="search-result-user-name">{{ UserData.login }}</p>
-      <p class="search-result-user-location">{{ UserData.location }}</p>
-    </div>
-    <div class="details-row">
-      <p class="search-results-user-email">
-        Email: <span> {{ UserData.email }}</span>
-      </p>
-      <p class="search-results-user-twitter">
-        Twitter: <span> {{ UserData.twitter }}</span>
-      </p>
-      <p class="search-results-user-hirable">
-        Looking for Work: <span>{{ UserData.hireable }}</span>
-      </p>
-    </div>
+<div class="container" *ngFor="let UserData of UsersData">
+  <div class="media search-result-item bg-transparent my-4">
+    <div class="media-body">
+      <div id="header-row">
+        <p class="search-result-user-name">{{ UserData.login }}</p>
+        <p class="search-result-user-location">
+          {{ UserData.location ? UserData.location : "Not Available" }}
+        </p>
+      </div>
+      <div class="details-row">
+        <p class="search-results-user-email">
+          Email:
+          <span> {{ UserData.email ? UserData.email : "Not Available" }}</span>
+        </p>
+        <p class="search-results-user-twitter">
+          Twitter:
+          <span>
+            {{ UserData.twitter ? UserData.twitter : "Not Available" }}</span
+          >
+        </p>
+        <p class="search-results-user-hirable">
+          Looking for Work:
+          <span>{{ UserData.hireable ? "Yes" : "No" }}</span>
+        </p>
+      </div>
 
-    <p class="search-result-item-description">
-      {{ UserData.bio }}
-    </p>
+      <p class="search-result-item-description">
+        {{ UserData.bio ? UserData.bio : "Not Available" }}
+      </p>
 
-    <div class="button-row">
-      <button class="btn btn-sm search-result-user-button">
-        View in GitHub
-      </button>
+      <div class="button-row">
+        <a
+          href="{{ UserData.url }}"
+          target="_blank"
+          class="btn btn-sm search-result-user-button"
+        >
+          View in GitHub
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -10,7 +10,5 @@ export class RepoItemComponent implements OnInit {
 
   @Input() repos: any;
 
-  ngOnInit(): void {
-    console.log(this.repos);
-  }
+  ngOnInit(): void {}
 }

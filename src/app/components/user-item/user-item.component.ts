@@ -25,7 +25,7 @@ export class UserItemComponent implements OnInit {
 
   fetchUser(payload: any) {
     this.userHttpService.getUserDetails(payload).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.UsersData.push(data);
     });
   }
