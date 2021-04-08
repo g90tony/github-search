@@ -12,7 +12,7 @@
         Homepage:
         <span>
           <a
-            href="http://www.github.com"
+            href="{{ repo.homepage }}"
             target="_blank"
             rel="noopener noreferrer"
             >{{ repo.homepage }}</a
@@ -30,7 +30,7 @@
 
     <div class="button-row">
       <a
-        href="{{ repo.url }}"
+        href="{{ repo.html_url }}"
         target="_blank"
         class="btn btn-sm search-result-repo-button"
         >View in GitHub</a

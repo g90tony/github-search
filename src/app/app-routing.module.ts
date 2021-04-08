@@ -11,10 +11,10 @@ const routes: Routes = [
     path: '',
     component: LandingPageComponent,
   },
-  { path: 'search', component: SearchLandingComponent },
-  { path: 'search-query', component: SearchQueryComponent },
-  { path: 'search-results', component: SearchResultsComponent },
-  { path: 'user-profile/:username', component: UserProfileComponent },
+  { path: '/search', component: SearchLandingComponent },
+  { path: '/search-query', component: SearchQueryComponent },
+  { path: '/search-results', component: SearchResultsComponent },
+  { path: '/user-profile/:username', component: UserProfileComponent },
 ];
 
 @NgModule({
