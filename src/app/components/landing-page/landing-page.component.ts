@@ -62,7 +62,7 @@ export class LandingPageComponent implements OnInit {
         data.homepage,
         data.stargazers_count,
         data.description,
-        data.login,
+        data.owner.login,
         data.bio,
         data.html_url
       );
