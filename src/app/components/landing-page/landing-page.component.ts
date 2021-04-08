@@ -66,7 +66,7 @@ export class LandingPageComponent implements OnInit {
         data.bio,
         data.html_url
       );
-      console.log(authenticatedRepo);
+      // console.log(authenticatedRepo);
       return authenticatedRepo;
     });
   }
