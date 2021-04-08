@@ -12,6 +12,7 @@ import { SearchQueryComponent } from './components/search-query/search-query.com
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { SearchLandingComponent } from './components/search-landing/search-landing.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RepoHttpService } from './services/repo-http.service';
 import { UserHttpService } from './services/user-http.service';
 import { User } from './classes/user';
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     UserItemComponent,
     RepoItemComponent,
     SearchLandingComponent,
+    UserProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
