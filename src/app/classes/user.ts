@@ -1,29 +1,27 @@
 export class User {
   constructor(
-    public name: string,
+    public avatar: string,
+    public bio: string,
+    public created_at: string,
     public email: string,
-    public blog: string,
-    public twitter_username: string,
-    public company: string,
-    public location: string,
-    public hireable: boolean,
-    public bio: string
+    public followers: number,
+    public following: number,
+    public location: number,
+    public hireable: string,
+    public name: string,
+    public twitter: string,
+    public total_repos: number
   ) {
+    this.avatar = avatar;
+    this.bio = bio ? bio : 'Not Available';
     this.name = name;
-    this.email = email;
-    this.blog = blog;
-    this.twitter_username = twitter_username;
-    this.company = company;
+    this.email = email ? email : 'Not Available';
+    this.hireable = hireable ? 'Yes' : 'No';
+    this.followers = followers;
+    this.following = following;
     this.location = location;
-    this.hireable = hireable;
-    this.bio = bio;
-  }
-
-  fetchUserSearch() {
-    //add the http service that is responsible for search users that match with the search criteria.
-  }
-
-  fetchUserInfo() {
-    //add the http service that is responsible for fetching on user's data by the userID
+    this.created_at = created_at;
+    this.twitter = twitter ? twitter : 'Not Available';
+    this.total_repos = total_repos;
   }
 }
