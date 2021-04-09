@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   { path: 'search-query', component: SearchQueryComponent },
   { path: 'search-result', component: SearchResultsComponent },
-  { path: 'search-result/view?=:username', component: UserProfileComponent },
+  { path: 'search-result/view?=/:username', component: UserProfileComponent },
 ];
 
 @NgModule({
