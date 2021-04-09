@@ -11,15 +11,15 @@
       need to do is search.
     </p>
     <div class="hero-button-container py-auto">
-      <form class="row hero-form" #token="ngForm" (ngSubmit)="onSubmit(token)">
+      <form class="row hero-form" #login="ngForm" (ngSubmit)="onSubmit(login)">
         <div class="input-group mb-3">
           <input
             ngModel
-            #token="ngModel"
-            name="token"
+            #login="ngModel"
+            name="login"
             type="text"
             class="form-control"
-            placeholder="Enter Github API token..."
+            placeholder="Enter Github email or username..."
             aria-label="token"
             aria-describedby="basic-addon2"
             required
@@ -33,7 +33,7 @@
           </div>
         </div>
       </form>
-      <a class="hero-cta btn btn-sm" href="/search-query">Search Now</a>
+      <!-- <a class="hero-cta btn btn-sm" href="/search-query">Search Now</a> -->
     </div>
   </div>
   <div class="hero-img-container">

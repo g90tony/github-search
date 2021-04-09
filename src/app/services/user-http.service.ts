@@ -6,10 +6,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserHttpService {
-  constructor(private http: HttpClient, private authToken: String) {}
-
+  authToken: String = environment.ApiKey;
   ApiUrl = 'https://api.github.com';
   private items: any = [];
+
+  constructor(private http: HttpClient) {}
+
+  setToken(token: string) {
+    this.authToken = token;
+  }
 
   getItems() {
     return this.items;
@@ -17,10 +22,6 @@ export class UserHttpService {
 
   setItems(newItems: any) {
     this.items.push(newItems);
-  }
-
-  setToken(token: string) {
-    this.authToken = token;
   }
 
   getMyData() {

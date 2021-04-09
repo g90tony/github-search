@@ -6,7 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RepoHttpService {
-  constructor(private http: HttpClient, private authToken: String) {}
+  authToken: String = environment.ApiKey;
+
+  constructor(private http: HttpClient) {}
 
   setToken(token: string) {
     this.authToken = token;
