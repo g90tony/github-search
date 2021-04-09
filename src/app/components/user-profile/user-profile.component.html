@@ -5,8 +5,8 @@
   <p class="h2 font-weight-bold">{{ authenticatedUser.name }}</p>
 </div>
 
-<div class="row mt-3 mx-auto">
-  <div class="head-column">
+<div class="row mt-3 mb-0 mx-auto">
+  <div class="head-column w-50 m-auto px-1">
     <div class="head-row">
       <div class="user-image-holder rounded-circle border-dark">
         <img
@@ -17,15 +17,17 @@
       </div>
       <div class="details-column">
         <div class="user-name-container">
-          <p class="user-name">{{ authenticatedUser.name }}</p>
+          <p class="user-name">{{ authenticatedUser.username }}</p>
         </div>
-        <div class="user-name-container">
-          <p class="user-twitter mb-0">
+        <div class="user-name-container mt-2">
+          <p class="detail-text font-weight-bolder mb-0">
             Twitter: {{ authenticatedUser.twitter }}
           </p>
         </div>
         <div class="user-name-container">
-          <p class="user-twitter mt-0">Email: {{ authenticatedUser.email }}</p>
+          <p class="detail-text font-weight-bolder mt-0">
+            Email: {{ authenticatedUser.email }}
+          </p>
         </div>
         <div class="user-details-row">
           <div class="detail-container w-100 mx-auto">
@@ -40,10 +42,11 @@
       </div>
     </div>
   </div>
-  <div class="head-column m-auto">
+
+  <div class="head-column w-50 m-auto">
     <div class="user-details-row">
       <div class="detail-container w-100 mx-auto">
-        <p class="detail-text font-weight-bold flex-wrap">
+        <p class="detail-text text-center font-weight-bold flex-wrap">
           {{ authenticatedUser.bio }}
         </p>
       </div>
@@ -51,11 +54,21 @@
     <div class="user-details-row">
       <div class="detail-container w-100 mx-auto">
         <p class="detail-label">Repositories</p>
-        <p class="detail-text">{{ authenticatedUser.total_repos }}</p>
+        <p class="detail-text">
+          {{
+            authenticatedUser.total_repos
+              ? "Not Available"
+              : authenticatedUser.total_repos
+          }}
+        </p>
       </div>
       <div class="detail-container w-100 mx-auto">
         <p class="detail-label">Hireable</p>
         <p class="detail-text">{{ authenticatedUser.hireable }}</p>
+      </div>
+      <div class="detail-container w-100 mx-auto">
+        <p class="detail-label">Location</p>
+        <p class="detail-text">{{ authenticatedUser.location }}</p>
       </div>
     </div>
 

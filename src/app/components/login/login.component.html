@@ -10,12 +10,8 @@
       personas meet and collaborate on innovative projects with GitHub. All you
       need to do is search.
     </p>
-    <div class="hero-button-container">
-      <form
-        class="row flex-nowrap hero-form"
-        #token="ngForm"
-        (ngSubmit)="onSubmit(token)"
-      >
+    <div class="hero-button-container py-auto">
+      <form class="row hero-form" #token="ngForm" (ngSubmit)="onSubmit(token)">
         <div class="input-group mb-3">
           <input
             ngModel
@@ -26,10 +22,13 @@
             placeholder="Enter Github API token..."
             aria-label="token"
             aria-describedby="basic-addon2"
+            required
           />
           <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2"
-              ><button class="btn btn-sm">Search Now</button></span
+              ><button class="btn btn-sm" type="submit">
+                Click to Start
+              </button></span
             >
           </div>
         </div>

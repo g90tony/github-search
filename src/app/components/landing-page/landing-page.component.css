@@ -7,6 +7,7 @@
 .head-column {
   display: flex;
   flex-flow: column wrap;
+  width: 50%;
 }
 
 .details-column {
@@ -78,5 +79,12 @@
 @media screen and (max-width: 990px) {
   .user-image-holder {
     display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .head-column {
+    width: 100%;
+    flex-wrap: nowrap;
   }
 }
