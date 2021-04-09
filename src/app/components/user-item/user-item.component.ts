@@ -21,8 +21,6 @@ export class UserItemComponent implements OnInit {
         this.fetchUser(data.login);
       });
     });
-
-    console.log(this.UsersData);
   }
 
   fetchUser(payload: any) {

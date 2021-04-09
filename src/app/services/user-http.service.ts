@@ -6,14 +6,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserHttpService {
-  constructor(private http: HttpClient, private token: String) {}
+  constructor(private http: HttpClient) {}
 
   ApiUrl = 'https://api.github.com';
-
+  private token: String = '';
   private items: any = [];
 
   getItems() {
     return this.items;
+  }
+
+  hasToken() {
+    return this.token !== null || undefined ? true : false;
   }
 
   setItems(newItems: any) {
@@ -25,13 +29,13 @@ export class UserHttpService {
   }
 
   getMyData() {
-    return this.token
-      ? this.http.get(`${this.ApiUrl}/user?access_token=${environment.ApiKey}`)
-      : this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`);
+    return this.token !== ''
+      ? this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`)
+      : this.http.get(`${this.ApiUrl}/user?access_token=${environment.ApiKey}`);
   }
 
   getUserData(username: string) {
-    return this.token
+    return this.token !== ''
       ? this.http.get(
           `${this.ApiUrl}/users/${username}?access_token=${this.token}`
         )
@@ -41,7 +45,7 @@ export class UserHttpService {
   }
 
   searchUsers(payload: string) {
-    return this.token
+    return this.token !== ''
       ? this.http.get(
           `${this.ApiUrl}/search/users?access_token=${this.token}`,
           {
@@ -54,10 +58,10 @@ export class UserHttpService {
   }
 
   getUserDetails(userName: any) {
-    return this.token
-      ? this.http.get(
+    return this.token !== ''
+      ? this.http.get(`${this.ApiUrl}/users/${userName}`)
+      : this.http.get(
           `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`
-        )
-      : this.http.get(`${this.ApiUrl}/users/${userName}`);
+        );
   }
 }

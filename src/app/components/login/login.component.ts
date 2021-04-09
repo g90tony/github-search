@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(token: NgForm) {
-    const newToken = token.value;
+    if (token.value) {
+      this.userHttpService.setToken(token.value.token);
+      this.repoHttpService.setToken(token.value.token);
 
-    this.userHttpService.setToken(newToken);
-    this.repoHttpService.setToken(newToken);
-
-    this.route.navigate(['/profile']);
+      this.route.navigate(['/profile']);
+    }
   }
 }

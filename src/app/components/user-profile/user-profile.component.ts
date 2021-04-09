@@ -54,14 +54,15 @@ export class UserProfileComponent implements OnInit {
       data.bio,
       data.created_at,
       data.email,
-      data.hireable,
       data.followers,
       data.following,
       data.location,
+      data.hireable,
       data.name,
       data.twitter,
       total_repos,
-      data.html_url
+      data.html_url,
+      data.login
     );
 
     return authenticatedUser;
@@ -79,7 +80,7 @@ export class UserProfileComponent implements OnInit {
         data.bio,
         data.html_url
       );
-      console.log(authenticatedRepo);
+
       return authenticatedRepo;
     });
   }

@@ -6,16 +6,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RepoHttpService {
-  constructor(private http: HttpClient, private token: String) {}
+  constructor(private http: HttpClient) {}
+
+  newToken: String = '';
 
   setToken(token: string) {
-    this.token = token;
+    this.newToken = token;
   }
 
   getMyRepos() {
-    return this.token
+    return this.newToken !== ''
       ? this.http.get(
-          `https://api.github.com/user/repos?access_token=${this.token}`,
+          `https://api.github.com/user/repos?access_token=${this.newToken}`,
           { params: { visibility: 'public' } }
         )
       : this.http.get(
@@ -25,9 +27,9 @@ export class RepoHttpService {
   }
 
   getUserRepos(username: string) {
-    return this.token
+    return this.newToken !== ''
       ? this.http.get(
-          `https://api.github.com/users/${username}/repos?access_token=${this.token}`
+          `https://api.github.com/users/${username}/repos?access_token=${this.newToken}`
         )
       : this.http.get(`https://api.github.com/users/${username}/repos`);
   }

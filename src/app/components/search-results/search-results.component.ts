@@ -26,11 +26,9 @@ export class SearchResultsComponent implements OnInit {
       counter++;
       return;
     });
-
-    console.log(usernames);
   }
 
   goToProfile(userName: string) {
-    this.router.navigate(['/user-profile', userName]);
+    this.router.navigate(['/search-result/view?=/', userName]);
   }
 }

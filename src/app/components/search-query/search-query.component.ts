@@ -30,6 +30,6 @@ export class SearchQueryComponent implements OnInit {
   }
 
   loadSearchResult() {
-    this.route.navigate(['/search-results']);
+    this.route.navigate(['/search-result']);
   }
 }
