@@ -11,29 +11,13 @@
       need to do is search.
     </p>
     <div class="hero-button-container py-auto">
-      <form class="row hero-form" #login="ngForm" (ngSubmit)="onSubmit(login)">
-        <div class="input-group mb-3">
-          <input
-            ngModel
-            #login="ngModel"
-            name="login"
-            type="text"
-            class="form-control"
-            placeholder="Enter Github email or username..."
-            aria-label="token"
-            aria-describedby="basic-addon2"
-            required
-          />
-          <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2"
-              ><button class="btn btn-sm" type="submit">
-                Click to Start
-              </button></span
-            >
-          </div>
-        </div>
-      </form>
-      <!-- <a class="hero-cta btn btn-sm" href="/search-query">Search Now</a> -->
+      <button
+        class="btn btn-sm btn-light font-weight-bold"
+        (click)="loadSearch()"
+        type="button"
+      >
+        Begin Searching
+      </button>
     </div>
   </div>
   <div class="hero-img-container">

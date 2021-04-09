@@ -18,12 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(token: NgForm) {
-    if (token.value) {
-      this.userHttpService.setToken(token.value.token);
-      this.repoHttpService.setToken(token.value.token);
-
-      this.route.navigate(['/profile']);
-    }
+  loadSearch() {
+    this.route.navigate(['/search-query']);
   }
 }
