@@ -41,10 +41,9 @@ yarn-error.log
 testem.log
 /typings
 
-/environment
-
 # System Files
 .DS_Store
 Thumbs.db
 src/environments/environment.prod.ts
 src/environments/environment.ts
+src/github_token.ts
