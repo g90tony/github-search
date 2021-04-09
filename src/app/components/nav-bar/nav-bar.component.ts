@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserHttpService } from 'src/app/services/user-http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,7 +7,17 @@ import { UserHttpService } from 'src/app/services/user-http.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
+
+  loadHome() {
+    this.route.navigate(['/']);
+  }
+  searchQuery() {
+    this.route.navigate(['/search-query']);
+  }
+  loadProfile() {
+    this.route.navigate(['/profile']);
+  }
 
   ngOnInit(): void {}
 }
