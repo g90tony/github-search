@@ -6,40 +6,52 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RepoHttpService {
-  constructor(private http: HttpClient) {}
-
-  newToken: String = '';
+  constructor(private http: HttpClient, private authToken: String) {}
 
   setToken(token: string) {
-    this.newToken = token;
+    this.authToken = token;
   }
 
   getMyRepos() {
-    return this.newToken !== ''
+    return this.authToken !== ''
       ? this.http.get(
-          `https://api.github.com/user/repos?access_token=${this.newToken}`,
+          `https://api.github.com/user/repos?access_token=${this.authToken}`,
           {
             params: { visibility: 'public' },
-            headers: { Accept: 'application/vnd.github.v3+json' },
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
           }
         )
       : this.http.get(
           `https://api.github.com/user/repos?access_token=${environment.ApiKey}`,
           {
             params: { visibility: 'public' },
-            headers: { Accept: 'application/vnd.github.v3+json' },
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
           }
         );
   }
 
   getUserRepos(username: string) {
-    return this.newToken !== ''
+    return this.authToken !== ''
       ? this.http.get(
-          `https://api.github.com/users/${username}/repos?access_token=${this.newToken}`,
-          { headers: { Accept: 'application/vnd.github.v3+json' } }
+          `https://api.github.com/users/${username}/repos?access_token=${this.authToken}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
+          }
         )
       : this.http.get(`https://api.github.com/users/${username}/repos`, {
-          headers: { Accept: 'application/vnd.github.v3+json' },
+          headers: {
+            Accept: 'application/vnd.github.v3+json',
+            Authorization: `${this.authToken} OAUTH-TOKEN`,
+          },
         });
   }
 }

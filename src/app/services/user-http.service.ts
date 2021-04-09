@@ -6,18 +6,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserHttpService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authToken: String) {}
 
   ApiUrl = 'https://api.github.com';
-  private token: String = '';
   private items: any = [];
 
   getItems() {
     return this.items;
-  }
-
-  hasToken() {
-    return this.token !== null || undefined ? true : false;
   }
 
   setItems(newItems: any) {
@@ -25,53 +20,82 @@ export class UserHttpService {
   }
 
   setToken(token: string) {
-    this.token = token;
+    this.authToken = token;
   }
 
   getMyData() {
-    return this.token !== ''
-      ? this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`, {
-          headers: { Accept: 'application/vnd.github.v3+json' },
+    return this.authToken !== ''
+      ? this.http.get(`${this.ApiUrl}/user?access_token=${this.authToken}`, {
+          headers: {
+            Accept: 'application/vnd.github.v3+json',
+            Authorization: `${this.authToken} OAUTH-TOKEN`,
+          },
         })
       : this.http.get(
           `${this.ApiUrl}/user?access_token=${environment.ApiKey}`,
-          { headers: { Accept: 'application/vnd.github.v3+json' } }
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
+          }
         );
   }
 
   getUserData(username: string) {
-    return this.token !== ''
+    return this.authToken !== ''
       ? this.http.get(
-          `${this.ApiUrl}/users/${username}?access_token=${this.token}`,
-          { headers: { Accept: 'application/vnd.github.v3+json' } }
+          `${this.ApiUrl}/users/${username}?access_token=${this.authToken}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
+          }
         )
       : this.http.get(
           `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`,
-          { headers: { Accept: 'application/vnd.github.v3+json' } }
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
+          }
         );
   }
 
   searchUsers(payload: string) {
-    return this.token !== ''
+    return this.authToken !== ''
       ? this.http.get(
-          `${this.ApiUrl}/search/users?access_token=${this.token}`,
+          `${this.ApiUrl}/search/users?access_token=${this.authToken}`,
           {
-            headers: { Accept: 'application/vnd.github.v3+json' },
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
             params: { q: payload },
           }
         )
       : this.http.get(`${this.ApiUrl}/search/users`, {
-          headers: { Accept: 'application/vnd.github.v3+json' },
+          headers: {
+            Accept: 'application/vnd.github.v3+json',
+            Authorization: `${this.authToken} OAUTH-TOKEN`,
+          },
           params: { q: payload },
         });
   }
 
   getUserDetails(userName: any) {
-    return this.token !== ''
+    return this.authToken !== ''
       ? this.http.get(`${this.ApiUrl}/users/${userName}`)
       : this.http.get(
           `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`,
-          { headers: { Accept: 'application/vnd.github.v3+json' } }
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+              Authorization: `${this.authToken} OAUTH-TOKEN`,
+            },
+          }
         );
   }
 }
