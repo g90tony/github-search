@@ -8,7 +8,8 @@
     "deploy": "ng deploy --base-href=https://g90tony.github.io/github-search/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "config": "ts-node -O '{\"module\": \"commonjs\"}' ./config.index.ts"
   },
   "private": true,
   "dependencies": {
