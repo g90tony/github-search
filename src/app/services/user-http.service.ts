@@ -29,7 +29,6 @@ export class UserHttpService {
       ? this.http.get(`${this.ApiUrl}/user?access_token=${this.authToken}`, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
-            Authorization: `${this.authToken} OAUTH-TOKEN`,
           },
         })
       : this.http.get(
@@ -37,7 +36,6 @@ export class UserHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         );
@@ -50,7 +48,6 @@ export class UserHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         )
@@ -59,7 +56,6 @@ export class UserHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         );
@@ -72,7 +68,6 @@ export class UserHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
             params: { q: payload },
           }
@@ -80,7 +75,6 @@ export class UserHttpService {
       : this.http.get(`${this.ApiUrl}/search/users`, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
-            Authorization: `${this.authToken} OAUTH-TOKEN`,
           },
           params: { q: payload },
         });
@@ -94,7 +88,6 @@ export class UserHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         );

@@ -22,7 +22,6 @@ export class RepoHttpService {
             params: { visibility: 'public' },
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         )
@@ -32,7 +31,6 @@ export class RepoHttpService {
             params: { visibility: 'public' },
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         );
@@ -45,14 +43,12 @@ export class RepoHttpService {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
-              Authorization: `${this.authToken} OAUTH-TOKEN`,
             },
           }
         )
       : this.http.get(`https://api.github.com/users/${username}/repos`, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
-            Authorization: `${this.authToken} OAUTH-TOKEN`,
           },
         });
   }
