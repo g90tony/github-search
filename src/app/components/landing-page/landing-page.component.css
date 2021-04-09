@@ -6,7 +6,7 @@
 }
 .head-column {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
 }
 
 .details-column {
@@ -48,13 +48,13 @@
   font-size: 24px;
   font-weight: 800;
   margin: 0;
-  text-align: center;
+  text-align: start;
 }
 
 .user-details-row {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .detail-container {
@@ -73,4 +73,10 @@
   padding: 0 10px;
   font-size: 12px;
   text-align: start;
+}
+
+@media screen and (max-width: 990px) {
+  .user-image-holder {
+    display: none;
+  }
 }
