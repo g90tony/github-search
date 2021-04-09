@@ -30,17 +30,24 @@ export class UserHttpService {
 
   getMyData() {
     return this.token !== ''
-      ? this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`)
-      : this.http.get(`${this.ApiUrl}/user?access_token=${environment.ApiKey}`);
+      ? this.http.get(`${this.ApiUrl}/user?access_token=${this.token}`, {
+          headers: { Accept: 'application/vnd.github.v3+json' },
+        })
+      : this.http.get(
+          `${this.ApiUrl}/user?access_token=${environment.ApiKey}`,
+          { headers: { Accept: 'application/vnd.github.v3+json' } }
+        );
   }
 
   getUserData(username: string) {
     return this.token !== ''
       ? this.http.get(
-          `${this.ApiUrl}/users/${username}?access_token=${this.token}`
+          `${this.ApiUrl}/users/${username}?access_token=${this.token}`,
+          { headers: { Accept: 'application/vnd.github.v3+json' } }
         )
       : this.http.get(
-          `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`
+          `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`,
+          { headers: { Accept: 'application/vnd.github.v3+json' } }
         );
   }
 
@@ -49,10 +56,12 @@ export class UserHttpService {
       ? this.http.get(
           `${this.ApiUrl}/search/users?access_token=${this.token}`,
           {
+            headers: { Accept: 'application/vnd.github.v3+json' },
             params: { q: payload },
           }
         )
       : this.http.get(`${this.ApiUrl}/search/users`, {
+          headers: { Accept: 'application/vnd.github.v3+json' },
           params: { q: payload },
         });
   }
@@ -61,7 +70,8 @@ export class UserHttpService {
     return this.token !== ''
       ? this.http.get(`${this.ApiUrl}/users/${userName}`)
       : this.http.get(
-          `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`
+          `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`,
+          { headers: { Accept: 'application/vnd.github.v3+json' } }
         );
   }
 }

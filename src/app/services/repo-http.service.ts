@@ -18,19 +18,28 @@ export class RepoHttpService {
     return this.newToken !== ''
       ? this.http.get(
           `https://api.github.com/user/repos?access_token=${this.newToken}`,
-          { params: { visibility: 'public' } }
+          {
+            params: { visibility: 'public' },
+            headers: { Accept: 'application/vnd.github.v3+json' },
+          }
         )
       : this.http.get(
           `https://api.github.com/user/repos?access_token=${environment.ApiKey}`,
-          { params: { visibility: 'public' } }
+          {
+            params: { visibility: 'public' },
+            headers: { Accept: 'application/vnd.github.v3+json' },
+          }
         );
   }
 
   getUserRepos(username: string) {
     return this.newToken !== ''
       ? this.http.get(
-          `https://api.github.com/users/${username}/repos?access_token=${this.newToken}`
+          `https://api.github.com/users/${username}/repos?access_token=${this.newToken}`,
+          { headers: { Accept: 'application/vnd.github.v3+json' } }
         )
-      : this.http.get(`https://api.github.com/users/${username}/repos`);
+      : this.http.get(`https://api.github.com/users/${username}/repos`, {
+          headers: { Accept: 'application/vnd.github.v3+json' },
+        });
   }
 }
