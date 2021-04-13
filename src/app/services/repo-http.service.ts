@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RepoHttpService {
-  authToken: String = environment.ApiKey;
+  authToken: String = environment.ghAccessKey;
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +26,7 @@ export class RepoHttpService {
           }
         )
       : this.http.get(
-          `https://api.github.com/user/repos?access_token=${environment.ApiKey}`,
+          `https://api.github.com/user/repos?access_token=${environment.ghAccessKey}`,
           {
             params: { visibility: 'public' },
             headers: {

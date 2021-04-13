@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserHttpService {
-  authToken: String = environment.ApiKey;
+  authToken: String = environment.ghAccessKey;
   ApiUrl = 'https://api.github.com';
   private items: any = [];
 
@@ -32,7 +32,7 @@ export class UserHttpService {
           },
         })
       : this.http.get(
-          `${this.ApiUrl}/user?access_token=${environment.ApiKey}`,
+          `${this.ApiUrl}/user?access_token=${environment.ghAccessKey}`,
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
@@ -52,7 +52,7 @@ export class UserHttpService {
           }
         )
       : this.http.get(
-          `${this.ApiUrl}/users/${username}?access_token=${environment.ApiKey}`,
+          `${this.ApiUrl}/users/${username}?access_token=${environment.ghAccessKey}`,
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
@@ -84,7 +84,7 @@ export class UserHttpService {
     return this.authToken !== ''
       ? this.http.get(`${this.ApiUrl}/users/${userName}`)
       : this.http.get(
-          `${this.ApiUrl}/users/${userName}?access_token=${environment.ApiKey}`,
+          `${this.ApiUrl}/users/${userName}?access_token=${environment.ghAccessKey}`,
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
