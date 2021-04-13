@@ -47,3 +47,6 @@ Thumbs.db
 src/environments/environment.prod.ts
 src/environments/environment.ts
 src/github_token.ts
+.firebaserc
+firebase.json
+build/index.html
