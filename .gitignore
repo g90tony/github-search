@@ -51,3 +51,4 @@ src/github_token.ts
 firebase.json
 build/index.html
 .firebase/hosting.ZGlzdFxSZXBvLVZpZXdlcg.cache
+firebase-debug.log
