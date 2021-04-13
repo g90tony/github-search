@@ -100,3 +100,9 @@
   color: #22333b;
   transition: 500ms ease-in;
 }
+
+@media screen and (max-width: 990px) {
+  .user-image-holder {
+    display: none;
+  }
+}
