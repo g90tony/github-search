@@ -50,3 +50,4 @@ src/github_token.ts
 .firebaserc
 firebase.json
 build/index.html
+.firebase/hosting.ZGlzdFxSZXBvLVZpZXdlcg.cache
