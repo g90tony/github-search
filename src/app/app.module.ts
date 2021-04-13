@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,17 @@ import { RepoHttpService } from './services/repo-http.service';
 import { UserHttpService } from './services/user-http.service';
 import { User } from './classes/user';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
+const firebaseConfig = {
+  apiKey: environment.apiKey,
+  authDomain: environment.authDomain,
+  projectId: environment.projectId,
+  storageBucket: environment.storageBucket,
+  messagingSenderId: environment.messagingSenderId,
+  appId: environment.appId,
+  measurementId: environment.measurementId,
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +41,13 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     UserProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+  ],
   providers: [
     RepoHttpService,
     UserHttpService,
